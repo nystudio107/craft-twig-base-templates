@@ -1,0 +1,26 @@
+{
+  "name": "nystudio107/craft-twig-base-templates",
+  "description": "Craft CMS effective Twig baste templating setup",
+  "type": "twig-bundle",
+  "version": "1.0.0",
+  "keywords": [
+    "twig",
+    "twig-bundle",
+    "composer",
+    "installer",
+    "bundle"
+  ],
+  "homepage": "https://nystudio107.com",
+  "require": {
+    "craftcms/cms": "*",
+    "nystudio107/twig-bundle-installer": "^1.0.0"
+  },
+  "support": {
+    "email": "info@nystudio107.com",
+    "issues": "https://github.com/nystudio107/craft-twig-base-templates/issues",
+    "source": "https://github.com/nystudio107/craft-twig-base-templates",
+    "docs": "https://github.com/nystudio107/craft-twig-base-templates"
+  },
+  "license": "MIT",
+  "minimum-stability": "stable"
+}
