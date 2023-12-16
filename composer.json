@@ -21,6 +21,11 @@
     "source": "https://github.com/nystudio107/craft-twig-base-templates",
     "docs": "https://github.com/nystudio107/craft-twig-base-templates"
   },
+  "autoload": {
+    "psr-4": {
+      "nystudio107\\craftTwigBaseTemplates\\": "src/"
+    }
+  },
   "license": "MIT",
   "minimum-stability": "stable"
 }
