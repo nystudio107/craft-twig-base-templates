@@ -17,5 +17,6 @@
     {% set baseUrl = alias('@assetsUrl') ~ '/' %}
 
     {# -- Twig output from the render; this must be in a block -- #}
-{% endapply %}{% block htmlPage %}
-{% endblock %}
+    {% block htmlPage %}
+    {% endblock %}
+{% endapply spaceless %}

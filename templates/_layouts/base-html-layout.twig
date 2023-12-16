@@ -1,23 +1,39 @@
 {# -- Base HTML layout template that all HTML requests inherit from -- #}
 {#
 ┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
 │ │                                headMeta                                 │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
 │ │                                headLinks                                │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
 │ │                                 headJs                                  │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
 │ │                                 headCss                                 │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                             │
 │                                 headContent                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
+│ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
+│ │ │                                                                     │ │ │
+│ │ │                               content                               │ │ │
+│ │ └─────────────────────────────────────────────────────────────────────┘ │ │
+│ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
+│ │ │                                                                     │ │ │
+│ │ │                             subContent                              │ │ │
+│ │ └─────────────────────────────────────────────────────────────────────┘ │ │
+│ │                                                                         │ │
 │ │                                bodyHtml                                 │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
@@ -28,8 +44,8 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 #}
 {% extends craft.app.request.isAjax() and not craft.app.request.getIsPreview()
-    ? "vendor/nystudio107/craft-twig-base-templates/templates/_base/_layouts/base-ajax-layout.twig"
-    : "vendor/nystudio107/craft-twig-base-templates/templates/_base/_layouts/base-web-layout.twig" %}
+    ? "vendor/nystudio107/craft-twig-base-templates/templates/_layouts/_base/base-ajax-layout.twig"
+    : "vendor/nystudio107/craft-twig-base-templates/templates/_layouts/_base/base-web-layout.twig" %}
 
 {% block htmlTag %}
 <html lang="{{ craft.app.language |slice(0,2) }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
@@ -49,22 +65,25 @@
     {% block headJs %}
     {% endblock headJs %}
 
-    {# -- Inline and critical CSS #}
-    <style>
-        {# -- Any CSS that should be included before </head> -- #}
-        {% block headCss %}
-        {% endblock headCss %}
-    </style>
+    {# -- Any CSS that should be included before </head> -- #}
+    {% block headCss %}
+    {% endblock headCss %}
 
 {% endblock headContent %}
 
 {# -- Page content that should be included in the <body> -- #}
 {% block bodyContent %}
-    {# -- Page content that should be included in the <body> -- #}
-    {% block bodyHtml %}
-    {% endblock bodyHtml %}
+    {# -- Primary content block -- #}
+    {% block content %}
+        {# -- Only content here will be rendered for AJAX requests #}
+    {% endblock %}
+
+    {# -- Content that appears below the primary content block -- #}
+    {% block subcontent %}
+    {% endblock %}
 
     {# -- Any JavaScript that should be included before </body> -- #}
     {% block bodyJs %}
     {% endblock bodyJs %}
+
 {% endblock bodyContent %}
