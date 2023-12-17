@@ -4,7 +4,7 @@ namespace nystudio107\craftTwigBaseTemplates\attributes;
 use Attribute;
 
 #[Attribute]
-class PrefectUrls
+class PrefectUrlsProps
 {
     /* @var string[] $prefetchUrls The URLs to prefetch */
     public array $prefetchUrls = [];

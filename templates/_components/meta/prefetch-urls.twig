@@ -1,6 +1,6 @@
 {# -- Prefetch & preconnect headers and links -- #}
 
-{# @var \nystudio107\craftTwigBaseTemplates\attributes\PrefectUrls props #}
+{# @var \nystudio107\craftTwigBaseTemplates\attributes\PrefectUrlsProps props #}
 {% set props = {
     prefetchUrls = [],
     outputLinks = true,
@@ -19,6 +19,5 @@
     {% endif %}
 {% endfor %}
 {% if headerLink is not empty and props.outputHeaders %}
-    {% set headerLink = "Link: " ~ headerLink %}
-    {% header headerLink %}
+    {% header "Link: " ~ headerLink %}
 {% endif %}
