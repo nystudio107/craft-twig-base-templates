@@ -181,7 +181,7 @@ Or you can even completely replace the content wrapped in the `<head>` or `<body
 ```twig
 {% block headContent %}
     {# -- anything you like -- #}
-{% end headContent %}
+{% endblock headContent %}
 ```
 
 ## Roadmap
