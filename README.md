@@ -179,7 +179,7 @@ So if you need a `<html>`, `<head>` or `<body>` tag with specific attributes on 
 Or you can even completely replace the content wrapped in the `<head>` or `<body>` tags with:
 
 ```twig
-{% headContent %}
+{% block headContent %}
     {# -- anything you like -- #}
 {% end headContent %}
 ```
