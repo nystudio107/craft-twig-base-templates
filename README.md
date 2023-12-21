@@ -28,6 +28,8 @@ The templates will then be installed into the git ignored `vendor/` directory in
 
 ## Usage
 
+The layouts are intentionally bare-bones, providing a sane structure on which any Craft CMS site can be built. The value provided is largely structural and organizational, at the expense of out of the box functionality.
+
 ### Extending the base layout
 
 In your templates, extend one of the layouts such as the as follows:
