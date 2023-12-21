@@ -16,15 +16,17 @@ These templates Craft CMS 3 or later (fully compatible with Craft CMS 4 & 5).
 
 To install the Craft Twig Base Templates, follow these steps:
 
-1. Open your terminal and go to your Craft project:
+1. Follow the instructions for installing the [Twig Bundle Installer](https://github.com/nystudio107/twig-bundle-installer?tab=readme-ov-file#adding-twig-bundles-to-your-project) Composer plugin
+
+2. Open your terminal and go to your Craft project:
 
         cd /path/to/project
 
-2. Then tell Composer to load the plugin:
+3. Then tell Composer to require the Twig Bundle:
 
         composer require nystudio107/craft-twig-base-templates
 
-The templates will then be installed into the git ignored `vendor/` directory inside of your `templates/` directory.
+The templates will then be installed into the git-ignored `vendor/` directory inside of your `templates/` directory.
 
 ## Usage
 
