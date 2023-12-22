@@ -53,29 +53,46 @@ The layout has the following blocks defined that you can override as you see fit
 │ │                                headLinks                                │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
-│ │                                 headJs                                  │ │
+│ │                               headScripts                               │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
-│ │                                 headCss                                 │ │
+│ │                                headStyle                                │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │                                 headContent                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
 │ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
+│ │ │                             preContent                              │ │ │
+│ │ └─────────────────────────────────────────────────────────────────────┘ │ │
+│ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
 │ │ │                               content                               │ │ │
 │ │ └─────────────────────────────────────────────────────────────────────┘ │ │
 │ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
-│ │ │                             subContent                              │ │ │
+│ │ │                            postContent                              │ │ │
 │ │ └─────────────────────────────────────────────────────────────────────┘ │ │
 │ │                                bodyHtml                                 │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
-│ │                                 bodyJs                                  │ │
+│ │                               bodyScripts                               │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │                                 bodyContent                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+Here's a breakdown of the blocks, and intended uses for each:
+
+* **`headContent`** - Wrapper block for everything that appears inside of the `<head>` tag
+  * **`headMeta`** - For `<meta>` tags such as `<meta charset="UTF-8">`
+  * **`headLinks`** - For `<link>` tags such as `<link rel="stylesheet" href="style.css" />`
+  * **`headScripts`** - For `<script>` tags such as `<script src="app.js"></script>` that should appear inside the `<head>` tag
+  * **`headStyle`** - For any inline (critical) CSS `<style></style>` tags
+* **`bodyContent`** - Wrapper block for everything that appears inside of the `<body>` tag
+  * **`bodyHtml`** - Wrapper block for HTML content that appears inside of the `<body>` tag
+    * **`preContent`** - HTML content that appears before the primary `content` block (such as a navbar or a site header)
+    * **`content`** - The primary HTML content for the page. This is the only block rendered for AJAX requests
+    * **`postContent`** - HTML content that appears after the primary `content` block (such as links or a site footer)
+  * **`bodyScripts`** - For `<script>` tags such as `<script src="app.js"></script>` that should appear before the `</body>` tag
 
 As a rule of thumb, override only the most specific block you need to. For instance, to add content to your page in a template that extends the base layout, just override the `content` block:
 
@@ -93,14 +110,16 @@ However, if you need to provide HTML that wraps your `content` block, you're fre
 ```twig
 {% block bodyHtml %}
     <div class="contaniner">
+    {% block preContent %}
+        <p>Site header</p>
+    {% endblock preContent %}
     {% block content %}
-        <h1>Some title</h1>
+        <h1>Content title</h1>
         <p>Some content</p>
     {% endblock content %}
-    {% block subContent %}
-        <h2>Some heading</h2>
-        <p>Some sub-content</p>
-    {% endblock subContent %}
+    {% block postContent %}
+        <p>Site footer</p>
+    {% endblock postContent %}
     </div>
 {% endblock bodyHtml %}
 ```
