@@ -124,17 +124,32 @@ However, if you need to provide HTML that wraps your `content` block, you're fre
 {% endblock bodyHtml %}
 ```
 
-### Blocks in multiple templates
+### Rendering Parent Block Content
 
-If you extend the various blocks in multiple templates, remember that you can use `{{ parent() }}` to render the parent block's content, while also providing your own:
+You'll notice that even in these very basic base layout templates, some of the blocks have content in them, for example the `headMeta` block:
 
 ```twig
-{% block content %}
-    {{ parent() }}
-    <h1>Some title</h1>
-    <p>Some content</p>
-{% endblock content %}
+    {# -- Any <meta> tags that should be included in the <head> -- #}
+    {% block headMeta %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+    {% endblock headMeta %}
 ```
+
+This is provided as a convenience for you, because almost every website will want to have these tags on them.
+
+If you override a block in your own layout or page templates, your content will be displayed instead of the parent block's content.
+
+However, you can use `{{ parent() }}` to render the parent block's content, while also adding your own content to it:
+
+```twig
+{% block headMeta %}
+    {{ parent() }}
+    <meta http-equiv="refresh" content="30">
+{% endblock headMeta %}
+```
+
+The above will render the content from the `base-html-layout.twig`'s `headMeta` block, and then also output your content as well.
 
 ### The special `content` block for AJAX
 
