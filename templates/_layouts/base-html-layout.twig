@@ -8,25 +8,28 @@
 │ │                                headLinks                                │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
-│ │                                 headJs                                  │ │
+│ │                               headScripts                               │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
-│ │                                 headCss                                 │ │
+│ │                               headStyles                                │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │                                 headContent                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
 │ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
+│ │ │                             preContent                              │ │ │
+│ │ └─────────────────────────────────────────────────────────────────────┘ │ │
+│ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
 │ │ │                               content                               │ │ │
 │ │ └─────────────────────────────────────────────────────────────────────┘ │ │
 │ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │
-│ │ │                             subContent                              │ │ │
+│ │ │                            postContent                              │ │ │
 │ │ └─────────────────────────────────────────────────────────────────────┘ │ │
 │ │                                bodyHtml                                 │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
-│ │                                 bodyJs                                  │ │
+│ │                               bodyScripts                               │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │                                 bodyContent                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -41,37 +44,41 @@
 
 {# -- Page content that should be included in the <head> -- #}
 {% block headContent %}
-    {# -- Any <meta> tags that should be included in the <head> #}
+    {# -- Any <meta> tags that should be included in the <head> -- #}
     {% block headMeta %}
     {% endblock headMeta %}
 
-    {# -- Any <link> tags that should be included in the <head> #}
+    {# -- Any <link> tags that should be included in the <head> -- #}
     {% block headLinks %}
     {% endblock headLinks %}
 
-    {# -- Any JavaScript that should be included before </head> -- #}
-    {% block headJs %}
-    {% endblock headJs %}
+    {# -- Any <script></script> tags that should be included in the <head> -- #}
+    {% block headScripts %}
+    {% endblock headScripts %}
 
-    {# -- Any CSS that should be included before </head> -- #}
-    {% block headCss %}
-    {% endblock headCss %}
+    {# -- Any <style></style> that should be included in the <head> -- #}
+    {% block headStyles %}
+    {% endblock headStyles %}
 
 {% endblock headContent %}
 
 {# -- Page content that should be included in the <body> -- #}
 {% block bodyContent %}
+    {# -- Content that appears before the primary content block -- #}
+    {% block preContent %}
+    {% endblock preContent %}
+
     {# -- Primary content block -- #}
     {% block content %}
-        {# -- Only content here will be rendered for AJAX requests #}
-    {% endblock %}
+        {# -- Only content here will be rendered for AJAX requests -- #}
+    {% endblock content %}
 
-    {# -- Content that appears below the primary content block -- #}
-    {% block subcontent %}
-    {% endblock %}
+    {# -- Content that appears after the primary content block -- #}
+    {% block postContent %}
+    {% endblock postContent %}
 
-    {# -- Any JavaScript that should be included before </body> -- #}
-    {% block bodyJs %}
-    {% endblock bodyJs %}
+    {# -- Any <script></script> tags that should be included before </body> -- #}
+    {% block bodyScripts %}
+    {% endblock bodyScripts %}
 
 {% endblock bodyContent %}
