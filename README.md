@@ -56,7 +56,7 @@ The layout has the following blocks defined that you can override as you see fit
 │ │                               headScripts                               │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
-│ │                                headStyle                                │ │
+│ │                               headStyles                                │ │
 │ └─────────────────────────────────────────────────────────────────────────┘ │
 │                                 headContent                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -86,7 +86,7 @@ Here's a breakdown of the blocks, and intended uses for each:
   * **`headMeta`** - For `<meta>` tags such as `<meta charset="UTF-8">`
   * **`headLinks`** - For `<link>` tags such as `<link rel="stylesheet" href="style.css" />`
   * **`headScripts`** - For `<script>` tags such as `<script src="app.js"></script>` that should appear inside the `<head>` tag
-  * **`headStyle`** - For any inline (critical) CSS `<style></style>` tags
+  * **`headStyles`** - For any inline (critical) CSS `<style></style>` tags
 * **`bodyContent`** - Wrapper block for everything that appears inside of the `<body>` tag
   * **`bodyHtml`** - Wrapper block for HTML content that appears inside of the `<body>` tag
     * **`preContent`** - HTML content that appears before the primary `content` block (such as a navbar or a site header)
