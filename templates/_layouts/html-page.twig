@@ -35,8 +35,8 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 #}
 {% extends craft.app.request.isAjax() and not craft.app.request.getIsPreview()
-    ? "vendor/nystudio107/craft-twig-base-templates/templates/_layouts/_base/base-ajax-layout.twig"
-    : "vendor/nystudio107/craft-twig-base-templates/templates/_layouts/_base/base-web-layout.twig" %}
+    ? "vendor/nystudio107/craft-twig-base-templates/templates/_layouts/_base/ajax.twig"
+    : "vendor/nystudio107/craft-twig-base-templates/templates/_layouts/_base/web.twig" %}
 
 {% block htmlTag %}
 <html lang="{{ craft.app.language |slice(0,2) }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
