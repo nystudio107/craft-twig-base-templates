@@ -34,7 +34,7 @@ The layouts are intentionally bare-bones, providing a sane structure on which an
 
 You can use the `html-page.twig` directly, or you can `extends` it with your own layout template that adds functionality you want available to all of your pages.
 
-### Extending the base layout
+### Extending the `html-page.twig` base layout
 
 In your layout or page templates, extend the `html-page.twig` as follows:
 
