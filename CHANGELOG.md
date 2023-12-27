@@ -1,6 +1,6 @@
 Changelog
 =========
 
-## 1.0.0 - UNRELEASED
-### Changed
+## 1.0.0 - 2023.12.27
+### Added
 * Initial release.
