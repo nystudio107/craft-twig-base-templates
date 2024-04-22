@@ -2,7 +2,7 @@
   "name": "nystudio107/craft-twig-base-templates",
   "description": "Craft CMS Twig base templates",
   "type": "twig-bundle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "twig",
     "twig-bundle",
