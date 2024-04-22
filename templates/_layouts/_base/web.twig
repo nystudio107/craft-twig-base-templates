@@ -19,7 +19,7 @@
 │                                  htmlPage                                   │
 └─────────────────────────────────────────────────────────────────────────────┘
 #}
-{% apply spaceless %}
+{% set docPage %}
     {% block htmlPage %}
     <!DOCTYPE html>
         {% block htmlTag %}
@@ -42,4 +42,4 @@
     </body>
         </html>
     {% endblock htmlPage %}
-{% endapply %}
+{% endset %} {{ craft.app.config.general.devMode ? docPage : docPage | spaceless }}
